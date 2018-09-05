@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+
+
+<!doctype html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="expires" content="0" />
+  <meta charset="utf-8">
+  <title></title>
+  <link type="text/css" rel="stylesheet" href="/res/css/common.css" />
+  <script type="text/javascript" src="/res/js/jquery-1.6.4.min.js"></script>
+  <style type="text/css">
+    .tableCon th {
+      width: 80px;
+    }
+  </style>
+  <script>
+    $(function(){
+	function init(){
+		// 判断是否需要每条馆藏都显示预约按钮
+		var itemSize = $(".tableLib").size();
+		if(itemSize > 1 && $(".tableLib:eq(0) [name='bookingParam']").val() != $(".tableLib:eq(1) [name='bookingParam']").val()){
+			$(".tableCon table").find("tr:eq(0) td").prepend('<a class="lend fr" onclick="booking(this)" href="javascript:void(0)">预约</a>');
+		}
+		$("body").show();
+	}
+	$(".tableLib .titBox").click(function(){
+		$(this).siblings().slideToggle().parent().siblings().find(".tableCon").hide();
+		$(this).toggleClass("biao").parent().siblings().find(".titBox").removeClass("biao");
+	});
+	
+	 
+	init();
+});
+
+/**
+* 提交表单,执行预约
+*/
+ function booking(_this){
+		$(_this).parent().parent().parent().find("input[type='radio']").attr("checked",true);
+		$("form").submit();
+	}
+</script>
+</head>
+
+<body style="display:none">
+  <div class="resoult">
+
+    <!--    
+  <div class="head clearfix">
+     <header><a href="" class="back fl"><img src="images/back.png" width="10" height="18" /></a><h1><span>检索结果</span></h1></header>
+  </div>
+  <div class="header"></div>
+ -->
+    <form action="/sms/opac/user/beforeBooking" method="get">
+      <input name="xc" value="3" type="hidden" />
+      <div class="article">
+        <article>
+          <!-- 图书介绍信息 -->
+
+
+
+          <header>
+            <div class="tit text_over_hidden">
+              <h1></h1>
+
+            </div>
+          </header>
+          <div class="catalog">
+
+
+
+
+
+
+
+
+
+
+
+            <!-- 其他自定义信息 -->
+
+            <p>丛编项：戴尔·卡耐基英文原著珍藏丛书</p>
+
+            <p>载体形态项：373页;21cm</p>
+
+            <p>并列正题名：How to stop Worrying and Start Living</p>
+
+            <p>出版发行项：北京:中央编译出版社,2006</p>
+
+            <p>个人责任者：卡耐基 D. Carnegie, D. 著</p>
+
+            <p>中图法分类号：B848.4-49</p>
+
+            <p>ISBN及定价：7-80211-238-9/CNY20.00</p>
+
+            <p>豆瓣简介：</p>
+
+            <p>题名/责任者：人性的优点:英文原版/(美)卡耐基(Carnegie,D.)著</p>
+
+            <p>题名责任附注：英文題名:How to stop Worrying and Start Living</p>
+
+            <p>一般附注：并列题名：How to stop Worrying and Start Living</p>
+
+            <p>学科主题：成功心理学-通俗读物</p>
+
+          </div>
+
+
+
+          <!-- 馆藏信息 -->
+
+
+
+
+          <div class="tableLib">
+            <div class="titBox clearfix biao">
+              <!-- 点击展示按钮 -->
+              <a href="javascript:void(0);" class="fr"> <span /> </a>
+              <!-- 标题题名 -->
+
+
+
+              <p>
+                《》
+                <em>
+
+
+
+
+                </em>
+              </p>
+
+
+
+            </div>
+            <!-- 其他信息 -->
+            <div class="tableCon" style="display:block;">
+              <table cellpadding="0" cellspacing="0">
+
+
+
+
+
+
+
+
+                <!-- 其他自定义信息 -->
+
+                <tr>
+                  <th>书刊状态</th>
+                  <td>可借</td>
+                </tr>
+
+                <tr>
+                  <th>索书号</th>
+                  <td>B848.4/562 图书定位 可借</td>
+                </tr>
+
+                <tr>
+                  <th>年卷期</th>
+                  <td>1</td>
+                </tr>
+
+                <tr>
+                  <th>条码号</th>
+                  <td>0445748</td>
+                </tr>
+
+                <tr>
+                  <th>定位信息</th>
+                  <td>图书定位</td>
+                </tr>
+
+                <tr>
+                  <th>校区—馆藏地</th>
+                  <td>总馆—第一</td>
+                </tr>
+
+                <!-- 预约参数 -->
+
+                <tr style="display:none">
+                  <th></th>
+                  <td><input name="bookingParam" value='{"marc_no":"0000100155"}' type="radio" style="display:none" /></td>
+                </tr>
+
+              </table>
+            </div>
+          </div>
+
+          <div class="tableLib">
+            <div class="titBox clearfix ">
+              <!-- 点击展示按钮 -->
+              <a href="javascript:void(0);" class="fr"> <span /> </a>
+              <!-- 标题题名 -->
+
+
+
+              <p>
+                《》
+                <em>
+
+
+
+
+                </em>
+              </p>
+
+
+
+            </div>
+            <!-- 其他信息 -->
+            <div class="tableCon" style="">
+              <table cellpadding="0" cellspacing="0">
+
+
+
+
+
+
+
+
+                <!-- 其他自定义信息 -->
+
+                <tr>
+                  <th>书刊状态</th>
+                  <td>可借</td>
+                </tr>
+
+                <tr>
+                  <th>索书号</th>
+                  <td>B848.4/562 图书定位 可借</td>
+                </tr>
+
+                <tr>
+                  <th>年卷期</th>
+                  <td>1</td>
+                </tr>
+
+                <tr>
+                  <th>条码号</th>
+                  <td>0445749</td>
+                </tr>
+
+                <tr>
+                  <th>定位信息</th>
+                  <td>图书定位</td>
+                </tr>
+
+                <tr>
+                  <th>校区—馆藏地</th>
+                  <td>总馆—第一</td>
+                </tr>
+
+                <!-- 预约参数 -->
+
+                <tr style="display:none">
+                  <th></th>
+                  <td><input name="bookingParam" value='{"marc_no":"0000100155"}' type="radio" style="display:none" /></td>
+                </tr>
+
+              </table>
+            </div>
+          </div>
+
+          <div class="tableLib">
+            <div class="titBox clearfix ">
+              <!-- 点击展示按钮 -->
+              <a href="javascript:void(0);" class="fr"> <span /> </a>
+              <!-- 标题题名 -->
+
+
+
+              <p>
+                《》
+                <em>
+
+
+
+
+                </em>
+              </p>
+
+
+
+            </div>
+            <!-- 其他信息 -->
+            <div class="tableCon" style="">
+              <table cellpadding="0" cellspacing="0">
+
+
+
+
+
+
+
+
+                <!-- 其他自定义信息 -->
+
+                <tr>
+                  <th>书刊状态</th>
+                  <td>可借</td>
+                </tr>
+
+                <tr>
+                  <th>索书号</th>
+                  <td>B848.4/562 图书定位 可借</td>
+                </tr>
+
+                <tr>
+                  <th>年卷期</th>
+                  <td>1</td>
+                </tr>
+
+                <tr>
+                  <th>条码号</th>
+                  <td>0445750</td>
+                </tr>
+
+                <tr>
+                  <th>定位信息</th>
+                  <td>图书定位</td>
+                </tr>
+
+                <tr>
+                  <th>校区—馆藏地</th>
+                  <td>总馆—第一</td>
+                </tr>
+
+                <!-- 预约参数 -->
+
+                <tr style="display:none">
+                  <th></th>
+                  <td><input name="bookingParam" value='{"marc_no":"0000100155"}' type="radio" style="display:none" /></td>
+                </tr>
+
+              </table>
+            </div>
+          </div>
+
+          <div class="tableLib">
+            <div class="titBox clearfix ">
+              <!-- 点击展示按钮 -->
+              <a href="javascript:void(0);" class="fr"> <span /> </a>
+              <!-- 标题题名 -->
+
+
+
+              <p>
+                《》
+                <em>
+
+
+
+
+                </em>
+              </p>
+
+
+
+            </div>
+            <!-- 其他信息 -->
+            <div class="tableCon" style="">
+              <table cellpadding="0" cellspacing="0">
+                <!-- 其他自定义信息 -->
+                <tr>
+                  <th>书刊状态</th>
+                  <td>可借</td>
+                </tr>
+
+                <tr>
+                  <th>索书号</th>
+                  <td>B848.4/562 图书定位 可借</td>
+                </tr>
+
+                <tr>
+                  <th>年卷期</th>
+                  <td>1</td>
+                </tr>
+
+                <tr>
+                  <th>条码号</th>
+                  <td>0445751</td>
+                </tr>
+
+                <tr>
+                  <th>定位信息</th>
+                  <td>图书定位</td>
+                </tr>
+
+                <tr>
+                  <th>校区—馆藏地</th>
+                  <td>总馆—第一</td>
+                </tr>
+
+                <!-- 预约参数 -->
+
+                <tr style="display:none">
+                  <th></th>
+                  <td><input name="bookingParam" value='{"marc_no":"0000100155"}' type="radio" style="display:none" /></td>
+                </tr>
+
+              </table>
+            </div>
+          </div>
+
+          <div class="tableLib">
+            <div class="titBox clearfix ">
+              <!-- 点击展示按钮 -->
+              <a href="javascript:void(0);" class="fr"> <span /> </a>
+              <!-- 标题题名 -->
+
+
+
+              <p>
+                《》
+                <em>
+
+
+
+
+                </em>
+              </p>
+
+
+
+            </div>
+            <!-- 其他信息 -->
+            <div class="tableCon" style="">
+              <table cellpadding="0" cellspacing="0">
+
+
+
+
+
+
+
+
+                <!-- 其他自定义信息 -->
+
+                <tr>
+                  <th>书刊状态</th>
+                  <td>可借</td>
+                </tr>
+
+                <tr>
+                  <th>索书号</th>
+                  <td>B848.4/562 图书定位 可借</td>
+                </tr>
+
+                <tr>
+                  <th>年卷期</th>
+                  <td>1</td>
+                </tr>
+
+                <tr>
+                  <th>条码号</th>
+                  <td>0445752</td>
+                </tr>
+
+                <tr>
+                  <th>定位信息</th>
+                  <td>图书定位</td>
+                </tr>
+
+                <tr>
+                  <th>校区—馆藏地</th>
+                  <td>总馆—第一</td>
+                </tr>
+
+                <!-- 预约参数 -->
+
+                <tr style="display:none">
+                  <th></th>
+                  <td><input name="bookingParam" value='{"marc_no":"0000100155"}' type="radio" style="display:none" /></td>
+                </tr>
+
+              </table>
+            </div>
+          </div>
+
+
+
+
+        </article>
+      </div>
+      <div class="footer"></div>
+
+      <!-- 是否开启预约 -->
+
+      <div>
+        <div class="foot clearfix" align="center">
+          <footer>
+            <input name="bookingParam" value='{"marc_no":"0000100155"}' type="radio" style="display:none" />
+            <a class="order" onclick="booking(this)" href="javascript:void(0)">读者预约</a>
+          </footer>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</body>
+
+</html>
